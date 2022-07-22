@@ -14,6 +14,14 @@ let firsttime=0;
 let table = [["$", "$", "$"], ["$", "$", "$"], ["$", "$", "$"]];
 let countx=0;
 let counto=0;
+const storagecountx=localStorage.getItem("storagecountx");
+if(storagecountx!==null) {
+  countx=parseInt(storagecountx);
+}
+const storagecounto=localStorage.getItem("storagecounto");
+if(storagecounto!==null) {
+  countx=parseInt(storagecounto);
+}
 
 $("#baricon").mouseenter(() => {
   const parshowproj=document.getElementById("showproj");
@@ -44,6 +52,8 @@ function won() {
 function refreshUI() {
   if (turn % 2 !== 0) { Turn.src = "./Otoe.png"; }
   else { Turn.src = "./download.png" }
+  localStorage.setItem("storagecountx",countx);
+  localStorage.setItem("storagecounto",counto);
   parcountx.innerText=String(countx);
   parcounto.innerText=String(counto);
   if(won()!=="$" && firsttime==1) {return 0;}
