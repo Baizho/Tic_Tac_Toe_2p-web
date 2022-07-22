@@ -81,6 +81,7 @@ function refreshUI() {
     if (res === "X") { parlastwin.src = "./download.png"; countx++;}
     else { parlastwin.src = "./Otoe.png"; counto++;}
     firsttime=1;
+    refreshUI();
     return 0;
   }
 }
