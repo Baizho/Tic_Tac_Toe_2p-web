@@ -15,6 +15,20 @@ let table = [["$", "$", "$"], ["$", "$", "$"], ["$", "$", "$"]];
 let countx=0;
 let counto=0;
 
+$("#baricon").mouseenter(() => {
+  const parshowproj=document.getElementById("showproj");
+  if(parshowproj.style.display==="block") {
+    parshowproj.style.display="none";
+  }
+   else {
+      parshowproj.style.display="block";
+    }
+});
+$("#showproj").mouseleave(() => {
+  const parshowproj=document.getElementById("showproj");
+  parshowproj.style.display="none";
+});
+
 function won() {
   if (table[0][0] === table[0][1] && table[0][1] === table[0][2]) return table[0][0];
   if (table[0][0] === table[1][1] && table[1][1] === table[2][2]) return table[0][0];

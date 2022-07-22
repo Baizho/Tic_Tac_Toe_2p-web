@@ -5,6 +5,18 @@ body {
   text-align:center;
   justify-content: center;
 }
+#bariconsec:hover {
+  transform: rotate(90deg);
+}
+#bariconsec {
+  transition:transform 1s;
+}
+#showproj {
+  position:absolute;
+  width:100%;
+  height:250px;
+  background-color:whitesmoke;
+}
 #colCountX{
   padding-right:15%;
 }
