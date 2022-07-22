@@ -14,14 +14,14 @@ let firsttime=0;
 let table = [["$", "$", "$"], ["$", "$", "$"], ["$", "$", "$"]];
 let countx=0;
 let counto=0;
-const storagecountx=localStorage.getItem("storagecountx");
-if(storagecountx!==null) {
-  countx=parseInt(storagecountx);
+const storageLastwonpic=localStorage.getItem("Lastwonpic");
+if(storageLastwonpic!==null) {
+  parlastwin.src=storageLastwonpic;
 }
-const storagecounto=localStorage.getItem("storagecounto");
-if(storagecounto!==null) {
-  countx=parseInt(storagecounto);
-}
+const storagecountx=localStorage.getItem("storacountx");
+if(storagecountx!==null) { countx=parseInt(storagecountx); }
+const storagecounto=localStorage.getItem("storacounto");
+if(storagecounto!==null) { counto=parseInt(storagecounto); }
 
 $("#baricon").mouseenter(() => {
   const parshowproj=document.getElementById("showproj");
@@ -49,11 +49,13 @@ function won() {
   return "$";
 }
 
+
+
 function refreshUI() {
   if (turn % 2 !== 0) { Turn.src = "./Otoe.png"; }
   else { Turn.src = "./download.png" }
-  localStorage.setItem("storagecountx",countx);
-  localStorage.setItem("storagecounto",counto);
+  localStorage.setItem("storacountx",countx);
+  localStorage.setItem("storacounto",counto);
   parcountx.innerText=String(countx);
   parcounto.innerText=String(counto);
   if(won()!=="$" && firsttime==1) {return 0;}
@@ -88,12 +90,19 @@ function refreshUI() {
   })
   if (won() !== "$") {
     let res = won();
-    if (res === "X") { parlastwin.src = "./download.png"; countx++;}
-    else { parlastwin.src = "./Otoe.png"; counto++;}
+    if (res === "X") { parlastwin.src = "./download.png"; countx++;localStorage.setItem("Lastwonpic","./download.png");}
+    else { parlastwin.src = "./Otoe.png"; counto++;localStorage.setItem("Lastwonpic","./Otoe.png");}
     firsttime=1;
     refreshUI();
     return 0;
   }
+}
+
+function swapPoints() {
+  const mem=countx;
+  countx=counto;
+  counto=mem;
+  refreshUI();
 }
 
 function refreshGame() {
