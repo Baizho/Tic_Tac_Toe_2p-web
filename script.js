@@ -63,7 +63,7 @@ function refreshUI() {
   parcontainer.innerHTML = "";
   table.forEach((row, x) => {
     const frow = document.createElement("div");
-    frow.classList.add("flexrow");
+    frow.classList.add("Flexrow");
     row.forEach((value, y) => {
       const but = document.createElement("button");
       const image = document.createElement("img");
