@@ -23,19 +23,7 @@ if(storagecountx!==null) { countx=parseInt(storagecountx); }
 const storagecounto=localStorage.getItem("storacounto");
 if(storagecounto!==null) { counto=parseInt(storagecounto); }
 
-$("#baricon").mouseenter(() => {
-  const parshowproj=document.getElementById("showproj");
-  if(parshowproj.style.display==="block") {
-    parshowproj.style.display="none";
-  }
-   else {
-      parshowproj.style.display="block";
-    }
-});
-$("#showproj").mouseleave(() => {
-  const parshowproj=document.getElementById("showproj");
-  parshowproj.style.display="none";
-});
+
 
 function won() {
   if (table[0][0] === table[0][1] && table[0][1] === table[0][2]) return table[0][0];
